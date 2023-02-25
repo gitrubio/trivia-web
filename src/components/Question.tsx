@@ -29,7 +29,7 @@ export default function Question({ question, points, index, next, answers}: IPro
         <Button className='question-buttom' key="false" onClick={()=> saveAnswer('False')}><CloseCircleFilled/></Button>,
         <Button className='question-buttom' key="false" onClick={()=> saveAnswer('True')}><CheckCircleFilled/></Button>,
       ]}
-      title={`Category :${question.category}`}
+      title={question.category}
       
     >
       <Typography className='font-nunito' style={{  marginBottom : 10}}><strong>{`QUESTION #${index + 1}`}</strong></Typography>
