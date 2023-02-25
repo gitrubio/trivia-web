@@ -3,8 +3,11 @@ import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons';
 import { Button, Card , Typography } from 'antd';
 import {  IPropsQuestion } from '../interfaces/app.interfaces';
 import '../styles/question.css';
+import useEncode from '../hooks/useEncode';
 
 export default function Question({ question, points, index, next, answers}: IPropsQuestion) {
+
+    const encode = useEncode()
     
     const saveAnswer = (answer: string) => {
       const newAnwers = answers.filter(
@@ -33,7 +36,7 @@ export default function Question({ question, points, index, next, answers}: IPro
       
     >
       <Typography className='font-nunito' style={{  marginBottom : 10}}><strong>{`QUESTION #${index + 1}`}</strong></Typography>
-      <Typography className='font-nunito' ><strong>{question.question}</strong></Typography>
+      <Typography className='font-nunito' ><strong>{encode(question.question)}</strong></Typography>
     </Card>
   );
 }
