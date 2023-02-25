@@ -1,31 +1,21 @@
 import React from 'react'
 import { EditOutlined,EllipsisOutlined,SettingOutlined } from '@ant-design/icons';
-import { Avatar,Card } from 'antd';
-import { Result, IPropsQuestion } from '../interfaces/app.interfaces';
+import { Card , Typography } from 'antd';
+import {  IPropsQuestion } from '../interfaces/app.interfaces';
 
-const { Meta } = Card;
-
-export default function Question({question, points} : IPropsQuestion ) {
+export default function Question({ question, points, index }: IPropsQuestion) {
   return (
-    <Card 
-    className="card"
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    }
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-  >
-    <Meta
-      avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
-      title={''}
-      description="This is the description"
-    />
-  </Card>
-  )
+    <Card
+    style={{justifySelf : 'center'}}
+      headStyle={{ border: "none" }}
+      className="card-question"
+      actions={[
+        <EditOutlined key="edit" />,
+        <EllipsisOutlined key="ellipsis" />,
+      ]}
+      title={` QUESTION #${index + 1}`}
+    >
+      <Typography style={{ color: "white" }}>{question.question}</Typography>
+    </Card>
+  );
 }

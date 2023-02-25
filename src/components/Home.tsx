@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Typography, Layout, Button, Card } from "antd";
+import { Typography, Layout, Button, Card, Alert, message } from "antd";
 import Logo from "../assets/logo.png";
 import "../styles/Welcome.css";
 import useHttp from "../hooks/useHttp";
@@ -10,10 +10,13 @@ const { Title } = Typography;
 const { Content } = Layout;
 
 export default function Welcome() {
+
   const [loading, setloading] = useState(false);
-  const { setQuestions }  = useContext(QuestionContext) 
-  const navigate = useNavigate()
+  const [messageApi, contextHolder] = message.useMessage();
+  const { setQuestions } = useContext(QuestionContext);
+  const navigate = useNavigate();
   const axios = useHttp();
+  const {Meta} = Card
 
   const getData = async () => {
     setloading(true);
@@ -21,28 +24,32 @@ export default function Welcome() {
       "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
     );
     if (!error && data) {
-      setQuestions(data.results)
-      navigate('/trivia')
+      setQuestions(data.results);
+      navigate("/trivia");
+    } else {
+      messageApi.error("Questions not found");
     }
+    setloading(false);
   };
 
   return (
     <Layout>
+      {contextHolder}
       <Content className="container">
+        <Title level={3} style={{}}  >Welcome to the Trivia Challenge!</Title>
         <Card
           className="card"
           cover={<img style={{ maxWidth: 290 }} alt="example" src={Logo} />}
           actions={[
             <Button type="primary" loading={loading} onClick={getData}>
-              Click me!
+              LEST GO!
             </Button>,
           ]}
         >
-          {/*   <Meta
-                avatar={}
-                title="Card title"
-                description="This is the description"
-              /> */}
+           <Meta style={{textAlign : 'center'}}
+                title="¿Can you score 100%?"
+                description = "You will"
+              /> 
         </Card>
       </Content>
     </Layout>

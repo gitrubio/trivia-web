@@ -44,4 +44,5 @@ export interface IContextQuestion {
 export interface IPropsQuestion {
     question : Result
     points : () => void
+    index : number
 }

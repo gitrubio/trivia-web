@@ -1,9 +1,13 @@
-.card {
-    margin: 0;
-    color: #fff;
+.card-question {
+    margin-inline: 20%;
     line-height: 50px;
     text-align: center;
-    background-color: black;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
 }
 
 .carousel {
@@ -11,4 +15,5 @@
     height: 100vh;
     background-image: url('../assets/trivia-wallpape.png');
     background-size: cover;
+    align-items: center;
 }

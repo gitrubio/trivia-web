@@ -1,4 +1,4 @@
-import React , { useContext, useEffect, useRef } from 'react'
+import React , { useContext, useRef } from 'react'
 import { Carousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import '../styles/Trivia.css'
@@ -23,8 +23,8 @@ export default function Trivia() {
       };
     
       return (
-        <Carousel ref={ref} afterChange={onChange} className='carousel' /* dots={false} */>
-          {questions.map((question) => <Question question={question} points={sumPoints}/>)}
+        <Carousel style={{display : 'flex'}} ref={ref} afterChange={onChange} className='carousel' dots={true} >
+          {questions.map((question,index) => <Question question={question} points={sumPoints} index={index}/>)}
         </Carousel>
       );
     };
