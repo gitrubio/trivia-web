@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
+
 export interface IResponse <T> {
     error: boolean
     data : T | null
 }
-
+//objecte response API --------------------
 export interface Questions {
     response_code: number;
     results:       Result[];
@@ -32,6 +33,8 @@ export enum Type {
 }
 
 
+
+//context interfaces ---------------------------------------------
 export interface IPropsQuestionProvider{
     children: ReactNode
 }
@@ -46,3 +49,4 @@ export interface IPropsQuestion {
     points : () => void
     index : number
 }
+// -----------------------------------------------------------

@@ -1,24 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './styles/index.css'
-import Trivia from './components/Trivia';
-import Home from './components/Home';
+import { RouterProvider } from "react-router-dom";
 import QuestionProvider from './context/QuestionProvider';
+import router from './routes/router'
+import './styles/index.css'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>
-  },
-  {
-    path: "/trivia",
-    element: <Trivia />
-  },
-]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QuestionProvider>

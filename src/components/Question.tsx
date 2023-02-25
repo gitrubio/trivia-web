@@ -1,5 +1,5 @@
 import React from 'react'
-import { EditOutlined,EllipsisOutlined,SettingOutlined } from '@ant-design/icons';
+import { CloseOutlined,CheckOutlined , CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons';
 import { Card , Typography } from 'antd';
 import {  IPropsQuestion } from '../interfaces/app.interfaces';
 
@@ -10,8 +10,8 @@ export default function Question({ question, points, index }: IPropsQuestion) {
       headStyle={{ border: "none" }}
       className="card-question"
       actions={[
-        <EditOutlined key="edit" />,
-        <EllipsisOutlined key="ellipsis" />,
+        <CloseCircleFilled key="false" />,
+        <CheckCircleFilled key="true"/>
       ]}
       title={` QUESTION #${index + 1}`}
     >
