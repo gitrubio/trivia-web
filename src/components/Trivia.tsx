@@ -6,13 +6,16 @@ import { QuestionContext } from '../context/QuestionProvider';
 import Question from './Question';
 import Results from './Results';
 import { IAnswers } from '../interfaces/app.interfaces';
+import useEncode from '../hooks/useEncode';
 
 export default function Trivia() {
 
     const ref : React.MutableRefObject<CarouselRef | null>  = useRef(null)
     const { questions } = useContext(QuestionContext)
-    const [answers,setanswers] = useState<IAnswers[]>(questions.map((question) => ({correct_answer : false, question : question.question})))
+    const encode = useEncode()
+    const [answers,setanswers] = useState<IAnswers[]>(questions.map((question) => ({correct_answer : false, question : encode(question.question)})))
     const [lastQuestion, setLastQuestion] = useState(0)
+
     const sumPoints = (object : IAnswers[]) =>{
         setanswers(object)
     }
