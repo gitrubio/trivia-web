@@ -1,21 +1,39 @@
 import React from 'react'
-import { CloseOutlined,CheckOutlined , CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons';
-import { Card , Typography } from 'antd';
+import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons';
+import { Button, Card , Typography } from 'antd';
 import {  IPropsQuestion } from '../interfaces/app.interfaces';
+import '../styles/question.css';
 
-export default function Question({ question, points, index }: IPropsQuestion) {
+export default function Question({ question, points, index, next, answers}: IPropsQuestion) {
+    
+    const saveAnswer = (answer: string) => {
+      const newAnwers = answers.filter(
+        (asw) => asw.question !== question.question
+      );
+      points([
+        ...newAnwers,
+        {
+          question: question.question,
+          correct_answer: question.correct_answer === answer,
+        },
+      ]);
+      next();
+    };
+
   return (
     <Card
     style={{justifySelf : 'center'}}
       headStyle={{ border: "none" }}
-      className="card-question"
+      className="card-question font-nunito"
       actions={[
-        <CloseCircleFilled key="false" />,
-        <CheckCircleFilled key="true"/>
+        <Button className='question-buttom' key="false" onClick={()=> saveAnswer('False')}><CloseCircleFilled/></Button>,
+        <Button className='question-buttom' key="false" onClick={()=> saveAnswer('True')}><CheckCircleFilled/></Button>,
       ]}
-      title={` QUESTION #${index + 1}`}
+      title={question.category}
+      
     >
-      <Typography style={{ color: "white" }}>{question.question}</Typography>
+      <Typography className='font-nunito' style={{  marginBottom : 10}}><strong>{`QUESTION #${index + 1}`}</strong></Typography>
+      <Typography className='font-nunito' ><strong>{question.question}</strong></Typography>
     </Card>
   );
 }

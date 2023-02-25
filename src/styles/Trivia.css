@@ -17,3 +17,46 @@
     background-size: cover;
     align-items: center;
 }
+.card-result {
+    margin: 0 auto;
+    text-align: center;
+    max-height: 400px;
+    padding: 10px;
+    max-width: 500px;
+    min-width: 300px;
+    border-radius: 20px;
+    overflow-y: scroll;
+    background-color: #2F58CD ;
+}
+
+.font-nunito {
+    font-family: 'Nunito', sans-serif;
+    font-size: large;
+    
+}
+
+.card-result::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.card-result::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+.card-result::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.card-result::-webkit-scrollbar-thumb {
+    background-color: #928f8f;
+    border-radius: 20px;
+}
+
+.card-result::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.btn-result {
+    margin: 0 auto;
+    display: flex;
+}

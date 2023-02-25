@@ -32,7 +32,14 @@ export enum Type {
     Boolean = "boolean",
 }
 
+export interface IAnswers {
+    question:          string;
+    correct_answer:    boolean;
+}
 
+export interface IQuestionResult {
+    answers : IAnswers[]
+}
 
 //context interfaces ---------------------------------------------
 export interface IPropsQuestionProvider{
@@ -46,7 +53,9 @@ export interface IContextQuestion {
 
 export interface IPropsQuestion {
     question : Result
-    points : () => void
+    answers : IAnswers[]
+    points : (object : IAnswers[]) => void
+    next : () => void
     index : number
 }
 // -----------------------------------------------------------
