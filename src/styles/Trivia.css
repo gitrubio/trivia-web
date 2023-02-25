@@ -9,5 +9,6 @@
 .carousel {
     overflow-y: hidden;
     height: 100vh;
-    background-color: #364d79;
+    background-image: url('../assets/trivia-wallpape.png');
+    background-size: cover;
 }

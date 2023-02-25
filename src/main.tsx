@@ -6,20 +6,23 @@ import {
 } from "react-router-dom";
 import './styles/index.css'
 import Trivia from './components/Trivia';
-import Welcome from './components/Welcome';
+import Home from './components/Home';
+import QuestionProvider from './context/QuestionProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Welcome/>
+    element: <Home/>
   },
   {
     path: "/trivia",
-    element: <Trivia/>
+    element: <Trivia />
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <QuestionProvider>
+       <RouterProvider router={router} />
+    </QuestionProvider>
   </React.StrictMode>,
 )

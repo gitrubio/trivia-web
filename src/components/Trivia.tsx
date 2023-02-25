@@ -1,12 +1,18 @@
-import React , { useRef } from 'react'
+import React , { useContext, useEffect, useRef } from 'react'
 import { Carousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import '../styles/Trivia.css'
+import { QuestionContext } from '../context/QuestionProvider';
+import Question from './Question';
 
 export default function Trivia() {
 
     const ref : React.MutableRefObject<CarouselRef | null>  = useRef(null)
+    const { questions } = useContext(QuestionContext)
+    
+    const sumPoints = () =>{
 
+    }
     const handleNext = () => {
       const carousel  =  ref.current
       if(carousel) carousel.next()
@@ -18,26 +24,7 @@ export default function Trivia() {
     
       return (
         <Carousel ref={ref} afterChange={onChange} className='carousel' /* dots={false} */>
-          <div>
-            <h3 className='card'>1</h3>
-            <button onClick={handleNext}> pa alante</button>
-          </div>
-          <div>
-            <h3 className='card'>2</h3>
-          </div>
-          <div>
-            <h3 className='card'>3</h3>
-          </div>
-          <div>
-            <h3 className='card'>4</h3>
-          </div>
-          <div>
-            <h3 className='card'>4</h3>
-          </div>
-          <div>
-            <h3 className='card'>4</h3>
-            <button onClick={handleNext}> pa alante</button>
-          </div>
+          {questions.map((question) => <Question question={question} points={sumPoints}/>)}
         </Carousel>
       );
     };

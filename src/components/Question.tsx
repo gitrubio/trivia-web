@@ -1,13 +1,14 @@
 import React from 'react'
 import { EditOutlined,EllipsisOutlined,SettingOutlined } from '@ant-design/icons';
 import { Avatar,Card } from 'antd';
+import { Result, IPropsQuestion } from '../interfaces/app.interfaces';
 
 const { Meta } = Card;
 
-export default function Question() {
+export default function Question({question, points} : IPropsQuestion ) {
   return (
-    <Card
-    style={{ width: 300 }}
+    <Card 
+    className="card"
     cover={
       <img
         alt="example"
@@ -22,7 +23,7 @@ export default function Question() {
   >
     <Meta
       avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
-      title="Card title"
+      title={''}
       description="This is the description"
     />
   </Card>
