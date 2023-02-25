@@ -1,0 +1,9 @@
+:root{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+}
