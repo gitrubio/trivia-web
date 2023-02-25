@@ -1,4 +1,4 @@
-import React , { useState } from 'react'
+import React from 'react'
 import { CloseCircleFilled, CheckCircleFilled } from '@ant-design/icons';
 import { Button, Card , Typography } from 'antd';
 import {  IPropsQuestion } from '../interfaces/app.interfaces';
